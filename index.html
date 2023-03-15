@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Iceberg&family=Josefin+Sans:wght@400;700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" />
+    <link rel="stylesheet" href="https://emerso-n.github.io/my-base-css/base.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="javascript.js" defer></script>
+    <title>Sign Up</title>
+  </head>
+  <body>
+    <div id="page_con">
+      <div id="panel_left">
+        <div>
+          
+          <h1>Very Real <div id="plaintext">Very Real Online Service</div> Online Service</h1>
+        </div>
+      </div>
+      <div id="panel_right">
+        <form action="post">
+          <div class="slice" id="slice_1">
+            <p>Everyone loves an <span>online service!</span><br />You should sign up for this one!</p>
+          </div>
+          <div class="slice" id="slice_2">
+            <p>Give us your information.</p>
+            <fieldset>
+              <div>
+                <input type="text" name="firstname" id="firstname" required/>
+                <label for="firstname">First Name</label>
+              </div>
+              <div>
+                <input type="text" name="lastname" id="lastname" required/>
+                <label for="lastname">Last Name</label>
+              </div>
+              <div>
+                <input type="email" name="email" id="email" title="Please enter a valid email address" required/> <!-- this does in fact validate the email. ig you can just have an email address without a .com or .anything at the end-->
+                <label for="email">Email</label>
+              </div>
+              <div>
+                <input type="tel" name="phonenumber" id="phonenumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Please enter a valid phone number" required/>
+                <label for="phonenumber">Phone Number</label>
+              </div>
+              <div>
+                <input type="password" name="password" id="password" pattern="(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required/>
+                <label for="password">Password
+                  <div id="password-req"> 
+                <ol>Password must include:
+                  <li data-req="^.{8,}$">At least 8 letters</li>
+                  <li data-req="[A-Z]">Uppercase letter</li>
+                  <li data-req="[a-z]">Lowercase letter</li>
+                  <li data-req="[0-9]">Number</li>
+                  <li data-req="[!@#$%^&*]">Special character</li>
+                </ol>
+                  </div></label>
+                
+              </div>
+              <div>
+                <input type="password" id="confirmpassword" required/>
+                <label for="confirmpassword">Confirm Password</label>
+              </div>
+            </fieldset>
+          </div>
+          <fieldset class="slice" id="slice_3">
+            <button id="submit-btn" type="submit">Create Account</button>
+            <p>Did you sign up already?&nbsp;<a href="http://" target="_blank">Log In</a></p>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
