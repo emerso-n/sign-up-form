@@ -2,7 +2,7 @@ console.log("js loaded");
 
 const inputs = document.querySelectorAll("input");
 
-invalidMessages = {"firstname":"Tell me your first name.","lastname":"Tell me your last name.", "email":"Give me a valid email address.", "phonenumber": "This phone number isn't valid.", "password":"Your password does not meet the requirements.", "confirmpassword": "These passwords don't match."}
+invalidMessages = { "firstname": "Tell me your first name.", "lastname": "Tell me your last name.", "email": "Give me a valid email address.", "phonenumber": "This phone number isn't valid.", "password": "Your password does not meet the requirements.", "confirmpassword": "These passwords don't match." }
 
 //can't get this to work. later maybe
 // inputs.forEach(input => {
@@ -22,7 +22,7 @@ invalidMessages = {"firstname":"Tell me your first name.","lastname":"Tell me yo
 
 phoneregex = /[0-9]{3}-[0-9]{3}-[0-9]{4}/g
 inputs[3].addEventListener("input", (e) => {
-    
+
     if (e.inputType == "deleteContentBackward") {
         if (e.target.value.charAt(e.target.value.length - 1) == "-") {
             e.target.value = e.target.value.slice(0, -1)
@@ -50,6 +50,7 @@ const req_list = document.querySelectorAll("#password-req li");
 const parent = document.getElementById("password-req");
 
 inputs[4].addEventListener("input", (e) => {
+    console.log(e)
     let reqCount = 0
 
     req_list.forEach(element => {
@@ -63,16 +64,18 @@ inputs[4].addEventListener("input", (e) => {
         else {
             element.classList.remove("req-met");
         }
-
     });
 
-    if(reqCount === req_list.length) {
+    if (reqCount === req_list.length) {
         parent.classList.add("blue-text");
-        
-      } else {
+
+    } else {
         parent.classList.remove("blue-text");
     }
-    validateConfirmPassword() ? inputs[5].classList.add("valid") : inputs[5].classList.remove("confirm-password-valid")
+    validateConfirmPassword() ? inputs[5].classList.add("valid") : inputs[5].classList.remove("valid")
+    if (e.target.value.length == 0) {
+        inputs[5].classList.remove("valid")
+    }
 })
 
 const form = document.querySelector("form")
@@ -83,7 +86,7 @@ form.addEventListener("submit", (e) => {
 })
 
 inputs[5].addEventListener("input", (e) => {
-   validateConfirmPassword() ? e.target.classList.add("valid") : e.target.classList.remove("confirm-password-valid")
+    validateConfirmPassword() ? e.target.classList.add("valid") : e.target.classList.remove("valid")
 })
 
 function validateConfirmPassword() {
