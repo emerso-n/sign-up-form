@@ -9,9 +9,7 @@
     --accent3: #11C7FF;
     --accent4: #ff44d0;
 }
-input:invalid{
-    background: red;
-}
+
 #page_con {
     display: flex;
     font-family: var(--sans);
