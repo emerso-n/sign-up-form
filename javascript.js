@@ -2,6 +2,24 @@ console.log("js loaded");
 
 const inputs = document.querySelectorAll("input");
 
+invalidMessages = {"firstname":"Tell me your first name.","lastname":"Tell me your last name.", "email":"Give me a valid email address.", "phonenumber": "This phone number isn't valid.", "password":"Your password does not meet the requirements.", "confirmpassword": "These passwords don't match."}
+
+//can't get this to work. later maybe
+// inputs.forEach(input => {
+//     input.addEventListener('input', function (e) {
+//         if (!input.validity.valid || input.validity.valueMissing) {
+//             e.target.setCustomValidity(invalidMessages[input.id]);
+//             e.target.classList.remove('valid');
+//             console.log("invalid")
+//         }
+//         else{
+//             e.target.setCustomValidity('');
+//             e.target.classList.add('valid');
+//             console.log("valid")
+//         }
+//     }, false);
+// })
+
 phoneregex = /[0-9]{3}-[0-9]{3}-[0-9]{4}/g
 inputs[3].addEventListener("input", (e) => {
     
@@ -25,7 +43,8 @@ inputs[3].addEventListener("input", (e) => {
     }
 })
 
-reqregex = /(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/g
+
+reqregex = /(?=^.{8,}$)(?=.*\d)(?=.*[!?@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/g
 
 const req_list = document.querySelectorAll("#password-req li");
 const parent = document.getElementById("password-req");
@@ -53,16 +72,18 @@ inputs[4].addEventListener("input", (e) => {
       } else {
         parent.classList.remove("blue-text");
     }
-    validateConfirmPassword() ? inputs[5].classList.add("confirm-password-valid") : inputs[5].classList.remove("confirm-password-valid")
+    validateConfirmPassword() ? inputs[5].classList.add("valid") : inputs[5].classList.remove("confirm-password-valid")
 })
 
 const form = document.querySelector("form")
 form.addEventListener("submit", (e) => {
-    validateConfirmPassword() ? true : e.preventDefault(), inputs[5].focus()
+    // console.log("submit event called")
+    validateConfirmPassword() ? true : (e.preventDefault(), inputs[5].focus())
+    // form.reportValidity();
 })
 
 inputs[5].addEventListener("input", (e) => {
-   validateConfirmPassword() ? e.target.classList.add("confirm-password-valid") : e.target.classList.remove("confirm-password-valid")
+   validateConfirmPassword() ? e.target.classList.add("valid") : e.target.classList.remove("confirm-password-valid")
 })
 
 function validateConfirmPassword() {

@@ -22,7 +22,7 @@
         </div>
       </div>
       <div id="panel_right">
-        <form action="post">
+        <form action="post" autocomplete="off" >
           <div class="slice" id="slice_1">
             <p>Everyone loves an <span>online service!</span><br />You should sign up for this one!</p>
           </div>
@@ -46,7 +46,7 @@
                 <label for="phonenumber">Phone Number</label>
               </div>
               <div>
-                <input type="password" name="password" id="password" pattern="(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required/>
+                <input type="password" name="password" id="password" pattern="(?=^.{8,}$)(?=.*\d)(?=.*[!?@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required/>
                 <label for="password">Password
                   <div id="password-req"> 
                 <ol>Password must include:
@@ -54,7 +54,7 @@
                   <li data-req="[A-Z]">Uppercase letter</li>
                   <li data-req="[a-z]">Lowercase letter</li>
                   <li data-req="[0-9]">Number</li>
-                  <li data-req="[!@#$%^&*]">Special character</li>
+                  <li data-req="[!@#$%?^&*]">Special character</li>
                 </ol>
                   </div></label>
                 

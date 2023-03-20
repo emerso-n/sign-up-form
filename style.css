@@ -9,7 +9,9 @@
     --accent3: #11C7FF;
     --accent4: #ff44d0;
 }
-
+input:invalid{
+    background: red;
+}
 #page_con {
     display: flex;
     font-family: var(--sans);
@@ -141,10 +143,10 @@ input {
 input:focus-visible+label {
     color: var(--accent4);
 }
-input:valid:not(#confirmpassword) + label, .confirm-password-valid + label{
+input:valid:not(#confirmpassword) + label, .valid + label{
     color: var(--accent3) !important;
 }
-input:valid:not(#confirmpassword) + label:after, .confirm-password-valid + label:after{
+input:valid:not(#confirmpassword) + label:after, .valid + label:after{
     content: "✓";
     position: absolute;
     inset: 1.2em 0 0 11.4em;
